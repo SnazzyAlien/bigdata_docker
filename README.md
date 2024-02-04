@@ -1,84 +1,83 @@
+# BIG DATA ECOSYSTEM WITH DOCKER
 
-# BIG DATA ECOSYSTEM COM DOCKER
+Environment for studying the main big data frameworks in Docker.
+<br> This setup will create dockers with the HDFS, HBase, Hive, Presto, Spark, Jupyter, Hue, Mongodb, Metabase, Nifi, Kafka, Mysql and Zookeeper frameworks with the following architecture:
+<br>
 
-Ambiente para estudo dos principais frameworks big data em docker.
-<br> Esse setup vai criar dockers com os frameworks HDFS, HBase, Hive, Presto, Spark, Jupyter, Hue, Mongodb, Metabase, Nifi, kafka, Mysql e Zookeeper com a seguinte arquitetura:
-<br>  
+![Ecosystem](ecosystem.jpeg)
 
-![Ecossistema](ecosystem.jpeg)
-
-## SOFTWARES NECESSÁRIOS
-#### Para a criação e uso do ambiente vamos utilizar o git e o Docker 
-   * Instalação do Docker Desktop no Windows [Docker Desktop](https://hub.docker.com/editions/community/docker-ce-desktop-windows) ou o docker no [Linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
-   *  [Instalação do git](https://git-scm.com/book/pt-br/v2/Come%C3%A7ando-Instalando-o-Git)
+## REQUIRED SOFTWARE
+#### To create and use the environment, we will use git and Docker
+    * Installation of Docker Desktop on Windows [Docker Desktop](https://hub.docker.com/editions/community/docker-ce-desktop-windows) or docker on [Linux](https://docs.docker. com/install/linux/docker-ce/ubuntu/)
+    * [Git installation](https://git-scm.com/book/pt-br/v2/Come%C3%A7ando-Instalando-o-Git)
    
 ## SETUP
-*OBS: Esse passo deve ser realizado apena uma vez. Após o ambiente criado, utilizar o docker-compose para iniciar os containers como mostrado no tópico INICIANDO O AMBIENTE*
+*NOTE: This step must only be performed once. After the environment is created, use docker-compose to start the containers as shown in the topic STARTING THE ENVIRONMENT*
 
-#### Criação do diretório docker:
-*OBS: Criar um diretório chamado docker*
+#### Creation of the docker directory:
+*NOTE: Create a directory called docker*
 
-   *  Sugestão no Windows:
-      *  Criar na raiz do seu drive o diretório docker
-         ex: C:\docker
+    * Suggestion on Windows:
+       * Create the docker directory at the root of your drive
+          ex: C:\docker
           
-   * Sugestão no Linux:
-      * Criar o diretório na home do usuário
-        ex: /home/user/docker
+    * Suggestion on Linux:
+       * Create the directory in the user's home
+         ex: /home/user/docker
 
-#### Em um terminal/DOS, dentro diretório docker, realizar o clone do projeto no github
-          git clone https://github.com/fabiogjardim/bigdata_docker.git
+#### In a terminal/DOS, inside the docker directory, clone the project to github
+           git clone https://github.com/fabiogjardim/bigdata_docker.git
 
-#### No diretório bigdata_docker vai existir os seguintes objetos
+#### In the bigdata_docker directory there will be the following objects
 ![ls](ls.JPG)
 
    
-## INICIANDO O AMBIENTE
+## STARTING THE ENVIRONMENT
    
-  *No Windows abrir PowerShell, do Linux um terminal*
+   *On Windows open PowerShell, on Linux a terminal*
 
-### No terminal, no diretorio bigdata_docker, executar o docker-compose
-          docker-compose up -d        
+### In the terminal, in the bigdata_docker directory, run docker-compose
+           docker-compose up -d
 
-### Verificar imagens e containers
+### Check images and containers
  
-         docker image ls
+          docker image ls
 
 ![docker image ls](docker_image_ls.JPG)
 
-         docker container ls
+          docker container ls
 
 ![docker container](docker_container_ls.JPG)
 
-## SOLUCIONANDO PROBLEMAS 
+## SOLVING PROBLEMS
    
-  *No Windows abrir o Docker Quickstart Terminal*
+   *On Windows open the Docker Quickstart Terminal*
 
-### Parar um containers
-         docker stop [nome do container]      
+### Stop a container
+          docker stop [container name]
 
-### Parar todos containers
-         docker stop $(docker ps -a -q)
+### Stop all containers
+          docker stop $(docker ps -a -q)
   
-### Remover um container
-         docker rm [nome do container]
+### Remove a container
+          docker rm [container name]
 
-### Remover todos containers
-         docker rm $(docker ps -a -q)         
+### Remove all containers
+          docker rm $(docker ps -a -q)
 
-### Dados do containers
-         docker container inspect [nome do container]
+### Container data
+          docker container inspect [container name]
 
-### Iniciar um container
-         docker-compose up -d [nome do container]
+### Start a container
+          docker-compose up -d [container name]
 
-### Iniciar todos os containers
-         docker-compose up -d 
+### Start all containers
+          docker-compose up -d
 
-### Acessar log do container
-         docker container logs [nome do container] 
+### Access container log
+          docker container logs [container name]
 
-## Acesso WebUI dos Frameworks
+## Frameworks WebUI Access
  
 * HDFS *http://localhost:50070*
 * Presto *http://localhost:8080*
@@ -91,61 +90,61 @@ Ambiente para estudo dos principais frameworks big data em docker.
 * Hue *http://localhost:8888*
 * Spark *http://localhost:4040*
 
-## Acesso por shell
+## Shell access
 
-   ##### HDFS
+    #####HDFS
 
-          docker exec -it datanode bash
+           docker exec -it datanode bash
 
-   ##### HBase
+    ##### HBase
 
-          docker exec -it hbase-master bash
+           docker exec -it hbase-master bash
 
-   ##### Sqoop
+    ##### Sqoop
 
-          docker exec -it datanode bash
+           docker exec -it datanode bash
         
-   ##### Kafka
+    ##### Kafka
 
-          docker exec -it kafka bash
+           docker exec -it kafka bash
 
-## Acesso JDBC
+## JDBC Access
 
-   ##### MySQL
-          jdbc:mysql://database/employees
+    ##### MySQL
+           jdbc:mysql://database/employees
 
-   ##### Hive
+    #####Hive
 
-          jdbc:hive2://hive-server:10000/default
+           jdbc:hive2://hive-server:10000/default
 
-   ##### Presto
+    ##### Presto
 
-          jdbc:presto://presto:8080/hive/default
+           jdbc:presto://presto:8080/hive/default
 
-## Usuários e senhas
+## Users and passwords
 
-   ##### Hue
-    Usuário: admin
-    Senha: admin
+    ##### Hue
+     User: admin
+     Password: admin
 
-   ##### Metabase
-    Usuário: bigdata@class.com
-    Senha: bigdata123 
+    ##### Metabase
+     User: bigdata@class.com
+     Password: bigdata123
 
-   ##### MySQL
-    Usuário: root
-    Senha: secret
+    ##### MySQL
+     User: root
+     Password: secret
    
-   ##### MongoDB
-    Usuário: root
-    Senha: root
-    Authentication Database: admin
+    ##### MongoDB
+     User: root
+     Password: root
+     Authentication Database: admin
 
-## Imagens   
+## Images
 
 [Docker Hub](https://hub.docker.com/u/fjardim)
 
-## Documentação Oficial
+## Official Documentation
 
 * https://zookeeper.apache.org/
 * https://kafka.apache.org/
