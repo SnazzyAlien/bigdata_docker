@@ -12,7 +12,7 @@ Environment for studying the main big data frameworks in Docker.
     * [Git installation](https://git-scm.com/book/pt-br/v2/Come%C3%A7ando-Instalando-o-Git)
    
 ## SETUP
-*NOTE: This step must only be performed once. After the environment is created, use docker-compose to start the containers as shown in the topic STARTING THE ENVIRONMENT*
+*NOTE: This step must only be performed once. After the environment is created, use docker-compose to start the containers as shown in the topic below "STARTING THE ENVIRONMENT"*
 
 #### Creation of the docker directory:
 *NOTE: Create a directory called docker*
